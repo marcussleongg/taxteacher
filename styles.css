@@ -7,9 +7,17 @@
 
 /* Body Styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: Roboto, sans-serif;
     background-color: #121212;
     color: #ffffff;
+}
+
+.top-left-image {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 40px;  /* Adjust width to your preferred size */
+    height: auto;  /* Maintains aspect ratio */
 }
 
 /* Header */
@@ -19,6 +27,36 @@ header {
     text-align: center;
     padding: 1em 0;
     font-weight: bold;
+}
+
+.header-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://source.unsplash.com/1600x400/?finance,learning');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.header-content h1 {
+    font-size: 3em;
+    font-weight: bold;
+    color: #1565c0;
+    margin-bottom: 10px;
+}
+
+.header-content h2 {
+    font-size: 1.5em;
+    font-weight: 300;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.header-content p {
+    font-size: 1.2em;
+    font-weight: 300;
+    margin-top: 10px;
+    color: gray;
 }
 
 /* Navigation Menu */
@@ -31,7 +69,7 @@ nav ul {
     list-style: none;
 }
 nav ul li a {
-    color: #1e88e5;
+    color: white;
     text-decoration: none;
     padding: 15px 20px;
     display: block;
