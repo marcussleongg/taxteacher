@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FinanceFusion Budgeting</title>
+        <link rel = "stylesheet" href = "style4.css">
+        <link rel = "icon" type = "image/png" href = "favicon.png" sizes = "32x32">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    </head>
+</html>
+<body>
+    <header class = "header">
+        <h1><a href="index.html">FinanceFusion</a></h1>
+    </header>
+    <main>
+            <div class = "title">
+            <h2>Budgeting Tool</h2>
+            </div>
+            <div class = "content">
+            <form id = "expenseForm">
+                <label for="expenseAmount">Expense Name</label>
+                <input type="name" id = "expenseName" placeholder="Enter Expense Name">
+                <label for="expenseAmount">Expense Amount</label>
+                <input type="number" id = "expenseAmount" placeholder="Enter Expense Amount">
+                <select id = "expenseCategory" required>
+                    <option value = "Transport">Transport</option>
+                    <option value = "Entertainment">Entertainment</option>
+                    <option value = "Food">Food</option>
+                    <option value = "Other">Other</option>
+                </select>
+                <input type = "date" id ="expenseDate" required/>
+                <button type = "button" onclick = "updateTotal()">Add Expense</button>
+            </form>
+            <form id = "incomeForm">
+                <label for="incomeName">Income Name</label>
+                <input type="name" id = "incomeName" placeholder="Enter Income Name">
+                <label for="incomeAmount">Income Amount</label>
+                <input type="number" id = "incomeAmount" placeholder="Enter Income Amount">
+                <select id = "incomeCategory" required>
+                    <option value = "Salary">Salary</option>
+                    <option value = "Other">Other</option>
+                </select>
+                <input type = "date" id ="incomeDate" required/>
+                <button type = "button" onclick = "updateTotal()">Add Income</button>
+            </form>
+            </div>
+            <div class = "mainTable">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Amount</th>
+                            <th>Category</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id = "mainList"></tbody>
+                </table>
+                <div class = "total">
+                    <p>Total:</p> $<span id = "total">0</span>
+                </div>
+            </div>
+        </main>
+     <script src = "script.js">
+              function updateTotal() {
+                    const income = parseFloat(document.getElementById("incomeAmount").value) || 0;
+                    const expense = parseFloat(document.getElementById("expenseAmount").value) || 0;
+                    let total = parseFloat(document.getElementById("total").value) || 0;
+                    total = total + income;
+                    total = total - expense;
+                    total.textContent = total.toFixed(2);
+                }
+    </script>
+</body>
