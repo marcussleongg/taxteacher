@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Tax Form</title>
-        <link rel = "stylesheet" href = "style-form.css">
+        <link rel = "stylesheet" href = "styleForTaxForm.css">
         <link rel = "icon" type = "image/png" href = "favicon.png" sizes = "32x32">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +12,7 @@
     <header class = "header">
         <h2 class="logo"><a id="title" href="asteroidAudit.html">Asteroid Audit</a></h2>
     </header>
-        <div class = "content">
+        <!--<div class = "content">-->
     <form id = "taxForm">
         <label for="grossIncome">Gross Income</label>
         <input type="number" id = "grossIncome" placeholder="Enter Amount">
@@ -55,8 +55,10 @@
         <br>
     </form>
         <br>
-    <p>Total Tax Due: </p>
-    <p id = "totalTaxDue">N/A</p>
+        <div id="totalTax">
+            <p>Total Tax Due: </p>
+            <p id = "totalTaxDue">N/A</p>
+        </div>
 </body>
 </html>
 <script>
@@ -83,6 +85,7 @@
  })
 
  document.getElementById("updateTaxOwedB").addEventListener("click", function() {
+    let body = document.querySelector("body");
         let grossIncome = parseFloat(document.getElementById("grossIncome").value) || 0;
         let retirementContributions = parseFloat(document.getElementById("retirementContributions").value) || 0;
         let studentLoanInterestDeduction = parseFloat(document.getElementById("studentLoanInterestDeduction").value) || 0;
@@ -127,5 +130,18 @@
         let withholdingOrEstimated = parseFloat(document.getElementById("withholdingOrEstimated").value) || 0;
         let k = taxOwed - credits - withholdingOrEstimated;
         p.textContent = k;
+        const total_adjustments = retirementContributions + studentLoanInterestDeduction + otherAdjustments;
+        try {
+            const img = document.getElementById("chart");
+            img.remove();
+        } catch (name) {
+            console.log(name);
+        }
+        const img = document.createElement("img");
+        img.setAttribute("id", "chart");
+        img.src= "https://quickchart.io/chart?width=500&height=300&chart={type:'pie',data:{labels:['Total Adjustments', 'Standard Deductions','Credits', 'Witholding or Estimated Payments'], datasets:[{label:'Data',data:[" + total_adjustments + ", " + standardDeductions + ", " + credits + ", " + withholdingOrEstimated + "]}]}";
+        img.width = 600;
+        body.appendChild(img);
+
  })
 </script>
