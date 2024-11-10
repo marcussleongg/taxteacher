@@ -2,12 +2,26 @@
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
     <title>Unity Web Player | Tax Teach Game</title>
+    <link rel="stylesheet" href="game-style.css">
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
+
   </head>
+  
   <body>
+    <header>
+      <h2 class="logo">Asteroid Audit</h2>
+      <nav class="navigation">
+        <a href="taxForm.html">Tax Form</a>
+        <a href="taxResources.html">Tax Resources</a>
+        <a href="otherResources.html">Other Resources</a>
+      </nav>
+    </header>
+    <main>
+      <canvas id="gameCanvas"></canvas>
+    </main>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
@@ -20,7 +34,8 @@
       <div id="unity-footer">
         <div id="unity-logo-title-footer"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Tax Teach Game</div>
+
+
       </div>
     </div>
     <script>
@@ -111,9 +126,10 @@
           document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
               }).then((unityInstance) => {
                 document.querySelector("#unity-loading-bar").style.display = "none";
-                document.querySelector("#unity-fullscreen-button").onclick = () => {
-                  unityInstance.SetFullscreen(1);
-                };
+                unityInstance.SetFullscreen(1);
+                // document.querySelector("#unity-fullscreen-button").onclick = () => {
+                //   unityInstance.SetFullscreen(1);
+                // };
 
               }).catch((message) => {
                 alert(message);
