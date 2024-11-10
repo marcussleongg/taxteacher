@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Other Resources</title>
+        <link rel = "stylesheet" href = "style4.css">
+        <link rel = "icon" type = "image/png" href = "favicon.png" sizes = "32x32">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    </head>
+<body>
+    <header class = "header">
+        <h1><a href="index.html">AsteroidAudit</a></h1>
+    </header>
+    <div class = "message">
+        <h2><em>click to see resources.</em></h2>
+    </div>
+    <nav>
+        <ul>
+            <li><button id = "buttonBudgeting">Budgeting Links</a></li>
+            <li><button id = "buttonInvesting">Investing Links</a></li>
+            <li><button id = "buttonBanking">Banking Links</a></li>
+        </ul>
+    </nav>
+    <main>
+            <div class = "content">
+                <ul id = "budgetingList">
+                    <li>
+                        <a href = "https://www.nerdwallet.com/article/finance/best-budget-apps">NerdWallet</a>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <a href = "https://www.thepennyhoarder.com/budgeting/best-budgeting-apps/">ThePennyHoarder</a>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <a href = "https://www.cnn.com/cnn-underscored/money/best-budgeting-apps">CNN</a>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <a href = "https://www.pcmag.com/picks/the-best-personal-finance-services">PCMag</a>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <a href = "https://www.kiplinger.com/personal-finance/how-to-save-money/best-budgeting-apps">Kiplinger</a>
+                    </li>
+                </ul>
+                <ul id = "investingList">
+                    <li>
+                        <a href = "https://www.fool.com/the-ascent/buying-stocks/">Motley Fool</a>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <a href = "https://www.investopedia.com/best-online-brokers-4587872">Investopedia</a>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <a href = "https://www.nerdwallet.com/best/investing/online-brokers-for-stock-trading">NerdWallet</a>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <a href = "https://www.stockbrokers.com/guides/beginner-investors">StockBrokers</a>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <a href = "https://money.usnews.com/investing/articles/best-investment-websites-for-beginners">US News Money</a>
+                    </li>
+                </ul>
+                <ul id = "bankingList">
+                    <li>
+                        <a href = "https://www.bankrate.com/banking/checking/best-checking-accounts/">Bankrate</a>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <a href = "https://www.gobankingrates.com/banking/banks/best-online-banks/">Go Banking Rates</a>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <a href = "https://handsonbanking.org/topics/banking/">Hands on Banking</a>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <a href = "https://www.federalreserveeducation.org/about-the-fed/structure-and-functions">Federal Reserve Education</a>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <a href = "https://bettermoneyhabits.bankofamerica.com/en/personal-banking/understanding-checking-and-savings-accounts">Better Money Habits</a>
+                    </li>
+                </ul>
+    </main>
+    </body>
+</html>
+<script>
+        document.getElementById("buttonBudgeting").addEventListener("click", function() {
+         const baList = document.getElementById("bankingList"); 
+         baList.style.display = "none";
+         const iList = document.getElementById("investingList"); 
+         iList.style.display = "none";
+         const bList = document.getElementById("budgetingList"); 
+         if (bList.style.display === "none" || bList.style.display === "") 
+         { bList.style.display = "block";}
+         else {
+            bList.style.display = "none";
+         }
+         })
+    
+         document.getElementById("buttonInvesting").addEventListener("click", function() {
+        const bList = document.getElementById("budgetingList"); 
+         bList.style.display = "none";
+         const baList = document.getElementById("bankingList"); 
+         baList.style.display = "none";
+         const iList = document.getElementById("investingList"); 
+         if (iList.style.display === "none" || iList.style.display === "") 
+         { iList.style.display = "block";}
+         else {
+            iList.style.display = "none";
+         }
+         })
+         document.getElementById("buttonBanking").addEventListener("click", function() {
+        const bList = document.getElementById("budgetingList"); 
+         bList.style.display = "none";
+         const iList = document.getElementById("investingList"); 
+         iList.style.display = "none";
+         const baList = document.getElementById("bankingList"); 
+         if (baList.style.display === "none" || baList.style.display === "") 
+         { baList.style.display = "block";}
+         else {
+            baList.style.display = "none";
+         }
+         })
+</script>
