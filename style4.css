@@ -15,6 +15,10 @@
     font-family: "Roboto", sans-serif;
 }
 
+form {
+    animation: fade 3s ease-in-out;
+}
+
 .header a{
     color: cadetblue;
     text-align: left;
@@ -187,4 +191,5 @@ form input, form select, form button {
     color: white;
     font-style: italic;
     font-size: 20px;
+    animation: fade 8s ease;
 }
