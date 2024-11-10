@@ -33,7 +33,7 @@
         <button type = "button" id = "updateAGIB">Calculate AGI</button>
         <br>
         <p>AGI: </p>
-        <p id = "AGICurrent">0</p>
+        <p id = "AGICurrent">N/A</p>
         <br>
     </form>
     <form id = "taxForm2">
@@ -46,7 +46,7 @@
         <button type = "button" id = "updateTaxableIncomeB">Calculate Taxable Income</button>
         <br>
         <p>Taxable Income: </p>
-        <p id = "taxableIncomeCurrent">0</p>
+        <p id = "taxableIncomeCurrent">N/A</p>
         <br>
     </form>
     <form>
@@ -62,9 +62,11 @@
         </select>
         <button type = "button" id = "updateTaxOwedB">Calculate Tax Owed</button><br>
         <p>Calculate Tax Owed: </p>
-        <p id = "taxOwedCurrent">0</p>
+        <p id = "taxOwedCurrent">N/A</p>
         <br>
     </form>
+    <p>Total Tax Due: </p>
+    <p id = "totalTaxDue">N/A</p>
 </body>
 </html>
 <script>
@@ -167,7 +169,12 @@
             let tax7 = Math.max(0, tax6 - 609350);
             taxOwed = tax7 * 0.37 + tax6 * 0.35 + tax5 * 0.32 + tax4 * 0.24 + tax3 * 0.22 + tax2 * 0.12 + tax1 * 0.10;
         }
-        let o = document.getElementById("taxOwedCurrent");
+        let o = document.getElementById("taxOwedCurrent") || 0;
         o.textContent = taxOwed;
+        let p = document.getElementById("totalTaxDue") || 0;
+        let credits = parseFloat(document.getElementById("credits").value) || 0;
+        let withholdingOrEstimated = parseFloat(document.getElementById("withholdingOrEstimated").value) || 0;
+        let k = taxOwed - credits - withholdingOrEstimated;
+        p.textContent = k;
  })
 </script>
