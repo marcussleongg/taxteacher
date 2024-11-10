@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>TaxForm</title>
+        <title>FinanceFusion Budgeting</title>
         <link rel = "stylesheet" href = "style4.css">
         <link rel = "icon" type = "image/png" href = "favicon.png" sizes = "32x32">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,10 +11,10 @@
 </html>
 <body>
     <header class = "header">
-        <h1><a href="index.html">AsteroidAudit</a></h1>
+        <h1><a href="index.html">FinanceFusion</a></h1>
     </header>
     <div class = "title">
-        <h2 id = "practice"><en>get experience and manage your finances better.</en></h2>
+        <h2 id = "practice"><en>practice the skills you need.</en></h2>
         </div>
         <div class = "content">
     <form id = "taxForm">
@@ -79,19 +79,20 @@
         a.textContent = AGI;
         console.log("hi im working");
         try {
-            const img = document.querySelector("img");
+            const img = document.getElementById("AGI_chart");
             img.remove()
         } catch (name) {
             console.log(name);
         }
         const img = document.createElement("img");
-        img.classList.add("AGI_chart");
+        img.setAttribute("id", "AGI_chart");
         img.src= "https://quickchart.io/chart?width=500&height=300&chart={type:'pie',data:{labels:['Retirement Contributions','Student Loan Interest', 'Other Adjustments'], datasets:[{label:'Data',data:[" + retirementContributions + ", " + studentLoanInterestDeduction + ", " + otherAdjustments + "]}]}}";
         img.width = 600;
         body.appendChild(img);
  })
 
  document.getElementById("updateTaxableIncomeB").addEventListener("click", function() {
+        let body = document.querySelector("body");
         let grossIncome = parseFloat(document.getElementById("grossIncome").value) || 0;
         let retirementContributions = parseFloat(document.getElementById("retirementContributions").value) || 0;
         let studentLoanInterestDeduction = parseFloat(document.getElementById("studentLoanInterestDeduction").value) || 0;
@@ -101,9 +102,22 @@
         let taxableIncome = AGI - standardDeductions;
         let t = document.getElementById("taxableIncomeCurrent");
         t.textContent = taxableIncome;
+        try {
+            const img = document.getElementById("taxableIncome_chart");
+            img.remove()
+        } catch (name) {
+            console.log(name);
+        }
+        const img = document.createElement("img");
+        img.setAttribute("id", "taxableIncome_chart");
+        img.src= "https://quickchart.io/chart?width=500&height=300&chart={type:'pie',data:{labels:['Retirement Contributions','Student Loan Interest', 'Other Adjustments'], datasets:[{label:'Data',data:[" + retirementContributions + ", " + studentLoanInterestDeduction + ", " + otherAdjustments + "]}]}}";
+        img.width = 600;
+        body.appendChild(img);
+        
  })
 
  document.getElementById("updateTaxOwedB").addEventListener("click", function() {
+        let bodt = document.querySelector("body");
         let grossIncome = parseFloat(document.getElementById("grossIncome").value) || 0;
         let retirementContributions = parseFloat(document.getElementById("retirementContributions").value) || 0;
         let studentLoanInterestDeduction = parseFloat(document.getElementById("studentLoanInterestDeduction").value) || 0;
@@ -182,5 +196,16 @@
         }
         let o = document.getElementById("taxOwedCurrent");
         o.textContent = taxOwed;
+        try {
+            const img = document.getElementById("taxOwed_chart");
+            img.remove()
+        } catch (name) {
+            console.log(name);
+        }
+        const img = document.createElement("img");
+        img.setAttribute("id", "taxOwed_chart");
+        img.src= "https://quickchart.io/chart?width=500&height=300&chart={type:'pie',data:{labels:['Retirement Contributions','Student Loan Interest', 'Other Adjustments'], datasets:[{label:'Data',data:[" + retirementContributions + ", " + studentLoanInterestDeduction + ", " + otherAdjustments + "]}]}}";
+        img.width = 600;
+        body.appendChild(img);
  })
 </script>
