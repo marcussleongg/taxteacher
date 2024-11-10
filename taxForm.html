@@ -88,7 +88,7 @@
         }
         const img = document.createElement("img");
         img.setAttribute("id", "AGI_chart");
-        img.src= "https://quickchart.io/chart?width=500&height=300&chart={type:'pie',data:{labels:['Retirement Contributions','Student Loan Interest', 'Other Adjustments'], datasets:[{label:'Data',data:[" + retirementContributions + ", " + studentLoanInterestDeduction + ", " + otherAdjustments + "]}]}}";
+        img.src= "https://quickchart.io/chart?width=500&height=300&chart={type:'pie',data:{labels:['Adjusted Gross Income', 'Retirement Contributions','Student Loan Interest', 'Other Adjustments'], datasets:[{label:'Data',data:[" + AGI + ", " + retirementContributions + ", " + studentLoanInterestDeduction + ", " + otherAdjustments + "]}]}}";
         img.width = 600;
         body.appendChild(img);
  })
