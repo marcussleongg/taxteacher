@@ -195,6 +195,7 @@ nav ul li a:hover {
     color: #fff;
     text-decoration: none;
     transition: color 0.3s;
+    animation: fade 3s ease;
 }
 
 .content ul li a:hover {
