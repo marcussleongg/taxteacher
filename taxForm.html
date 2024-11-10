@@ -139,7 +139,7 @@
         }
         const img = document.createElement("img");
         img.setAttribute("id", "chart");
-        img.src= "https://quickchart.io/chart?width=500&height=300&chart={type:'pie',data:{labels:['Total Adjustments', 'Standard Deductions','Credits', 'Witholding or Estimated Payments'], datasets:[{label:'Data',data:[" + total_adjustments + ", " + standardDeductions + ", " + credits + ", " + withholdingOrEstimated + "]}]}";
+        img.src= "https://quickchart.io/chart?width=500&height=300&chart={type:'pie', data:{labels:['Total Adjustments', 'Standard Deductions', 'Credits', 'Witholding or Estimated Payments'], datasets:[{label:'Data',data:[" + total_adjustments + ", " + standardDeductions + ", " + credits + ", " + withholdingOrEstimated + "]}]}}";
         img.width = 600;
         body.appendChild(img);
 
