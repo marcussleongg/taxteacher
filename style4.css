@@ -1,6 +1,11 @@
 /* Import Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Orbitron:wght@700&display=swap');
 
+@keyframes fade{
+    0% {opacity: 0%;}
+    100% {opacity: 100%;}
+}
+
 /* General Reset and Styling */
 *{
     margin: 0;
@@ -31,7 +36,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /*z-index: 99;*/
+    z-index: 99;
 }
 
 .logo {
@@ -39,6 +44,12 @@ header {
     color: #fff;
     user-select: none;
 
+}
+
+#title{
+    color: #fff;
+    text-decoration: none; 
+    animation: fade 3s ease;
 }
 
 .row {
