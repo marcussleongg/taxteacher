@@ -17,110 +17,110 @@
     </div>
     <nav>
         <ul>
-            <li><button id = "buttonBudgeting">Budgeting Links</a></li>
-            <li><button id = "buttonInvesting">Investing Links</a></li>
-            <li><button id = "buttonBanking">Banking Links</a></li>
+            <li><button id = "tax1b">Types of Taxes</a></li>
+            <li><button id = "tax2b">Tax Planning</a></li>
+            <li><button id = "tax3b">Tax Education</a></li>
         </ul>
     </nav>
     <main>
             <div class = "content">
-                <ul id = "budgetingList">
+                <ul id = "typesList">
                     <li>
-                        <a href = "https://www.nerdwallet.com/article/finance/best-budget-apps">NerdWallet</a>
+                        <a href = "https://taxfoundation.org/taxedu/educational-resources/primer-the-three-basic-tax-types/">TaxFoundation</a>
                         <br>
                         <br>
                         <br>
                         <br>
                         <br>
-                        <a href = "https://www.thepennyhoarder.com/budgeting/best-budgeting-apps/">ThePennyHoarder</a>
+                        <a href = "https://smartasset.com/taxes/types-of-taxes">SmartAsset</a>
                         <br>
                         <br>
                         <br>
                         <br>
                         <br>
-                        <a href = "https://www.cnn.com/cnn-underscored/money/best-budgeting-apps">CNN</a>
+                        <a href = "https://taxfoundation.org/taxedu/videos/tax-types/">TaxFoundation</a>
                         <br>
                         <br>
                         <br>
                         <br>
                         <br>
-                        <a href = "https://www.pcmag.com/picks/the-best-personal-finance-services">PCMag</a>
+                        <a href = "https://www.irs.gov/help/tax-topics">IRS</a>
                         <br>
                         <br>
                         <br>
                         <br>
                         <br>
-                        <a href = "https://www.kiplinger.com/personal-finance/how-to-save-money/best-budgeting-apps">Kiplinger</a>
+                        <a href = "https://www.ubt.com/learning-center/blogs/taxes-101-tax-prep-crash-course">UBT</a>
                     </li>
                 </ul>
-                <ul id = "investingList">
+                <ul id = "planningList">
                     <li>
-                        <a href = "https://www.fool.com/the-ascent/buying-stocks/">Motley Fool</a>
+                        <a href = "https://www.nerdwallet.com/article/taxes/tax-planning">NerdWallet</a>
                         <br>
                         <br>
                         <br>
                         <br>
                         <br>
-                        <a href = "https://www.investopedia.com/best-online-brokers-4587872">Investopedia</a>
+                        <a href = "https://www.fool.com/the-ascent/taxes/articles/3-major-tax-headaches-and-what-you-can-do-about-them/">Motley Fool</a>
                         <br>
                         <br>
                         <br>
                         <br>
                         <br>
-                        <a href = "https://www.nerdwallet.com/best/investing/online-brokers-for-stock-trading">NerdWallet</a>
+                        <a href = "https://ivypanda.com/essays/topic/taxes-essay-topics/">IvyPanda</a>
                         <br>
                         <br>
                         <br>
                         <br>
                         <br>
-                        <a href = "https://www.stockbrokers.com/guides/beginner-investors">StockBrokers</a>
+                        <a href = "https://studycorgi.com/ideas/taxes-essay-topics/">StudyCorgi</a>
                         <br>
                         <br>
                         <br>
                         <br>
                         <br>
-                        <a href = "https://money.usnews.com/investing/articles/best-investment-websites-for-beginners">US News Money</a>
+                        <a href = "https://taxfoundation.org/blog/what-taxes-do-americans-pay/">Tax Foundation</a>
                     </li>
                 </ul>
-                <ul id = "bankingList">
+                <ul id = "educationList">
                     <li>
-                        <a href = "https://www.bankrate.com/banking/checking/best-checking-accounts/">Bankrate</a>
+                        <a href = "https://apps.irs.gov/app/understandingTaxes/student/tax_tutorials.jsp">IRS</a>
                         <br>
                         <br>
                         <br>
                         <br>
                         <br>
-                        <a href = "https://www.gobankingrates.com/banking/banks/best-online-banks/">Go Banking Rates</a>
+                        <a href = "https://taxfoundation.org/taxedu/educational-resources/primer-the-three-basic-tax-types/">Tax Foundation</a>
                         <br>
                         <br>
                         <br>
                         <br>
                         <br>
-                        <a href = "https://handsonbanking.org/topics/banking/">Hands on Banking</a>
+                        <a href = "https://taxfoundation.org/taxedu/videos/tax-types/">Tax Foundation</a>
                         <br>
                         <br>
                         <br>
                         <br>
                         <br>
-                        <a href = "https://www.federalreserveeducation.org/about-the-fed/structure-and-functions">Federal Reserve Education</a>
+                        <a href = "https://www.irs.gov/help/tax-topics">IRS</a>
                         <br>
                         <br>
                         <br>
                         <br>
                         <br>
-                        <a href = "https://bettermoneyhabits.bankofamerica.com/en/personal-banking/understanding-checking-and-savings-accounts">Better Money Habits</a>
+                        <a href = "https://www.ubt.com/learning-center/blogs/taxes-101-tax-prep-crash-course">UBT</a>
                     </li>
                 </ul>
     </main>
     </body>
 </html>
 <script>
-        document.getElementById("buttonBudgeting").addEventListener("click", function() {
-         const baList = document.getElementById("bankingList"); 
+        document.getElementById("tax1b").addEventListener("click", function() {
+         const baList = document.getElementById("planningList"); 
          baList.style.display = "none";
-         const iList = document.getElementById("investingList"); 
+         const iList = document.getElementById("educationList"); 
          iList.style.display = "none";
-         const bList = document.getElementById("budgetingList"); 
+         const bList = document.getElementById("typesList"); 
          if (bList.style.display === "none" || bList.style.display === "") 
          { bList.style.display = "block";}
          else {
@@ -128,24 +128,24 @@
          }
          })
     
-         document.getElementById("buttonInvesting").addEventListener("click", function() {
-        const bList = document.getElementById("budgetingList"); 
+         document.getElementById("tax2b").addEventListener("click", function() {
+        const bList = document.getElementById("typesList"); 
          bList.style.display = "none";
-         const baList = document.getElementById("bankingList"); 
+         const baList = document.getElementById("educationList"); 
          baList.style.display = "none";
-         const iList = document.getElementById("investingList"); 
+         const iList = document.getElementById("planningList"); 
          if (iList.style.display === "none" || iList.style.display === "") 
          { iList.style.display = "block";}
          else {
             iList.style.display = "none";
          }
          })
-         document.getElementById("buttonBanking").addEventListener("click", function() {
-        const bList = document.getElementById("budgetingList"); 
+         document.getElementById("tax3b").addEventListener("click", function() {
+        const bList = document.getElementById("planningList"); 
          bList.style.display = "none";
-         const iList = document.getElementById("investingList"); 
+         const iList = document.getElementById("typesList"); 
          iList.style.display = "none";
-         const baList = document.getElementById("bankingList"); 
+         const baList = document.getElementById("educationList"); 
          if (baList.style.display === "none" || baList.style.display === "") 
          { baList.style.display = "block";}
          else {
