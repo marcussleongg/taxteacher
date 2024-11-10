@@ -1,140 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Budget Calculator</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f9f9f9; }
-        .container { max-width: 600px; margin: auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
-        h2 { color: #333; }
-        label { font-weight: bold; display: block; margin: 10px 0 5px; }
-        input, button { width: 100%; padding: 10px; margin-bottom: 15px; }
-        button { background-color: #4CAF50; color: #fff; border: none; cursor: pointer; }
-        button:hover { background-color: #45a049; }
-        .results { padding: 20px; background-color: #eef; border-radius: 8px; margin-top: 20px; }
-        canvas { max-width: 100%; height: auto; margin-top: 20px; }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <h2>Budget Calculator</h2>
-    
-    <!-- Income Section -->
-    <label for="salary">Monthly Salary Income ($):</label>
-    <input type="number" id="salary" placeholder="Enter salary income">
-
-    <label for="otherIncome">Other Monthly Income ($):</label>
-    <input type="number" id="otherIncome" placeholder="Enter other income sources">
-
-    <!-- Expense Section -->
-    <h3>Expenses</h3>
-    <label for="rent">Rent/Mortgage ($):</label>
-    <input type="number" id="rent" placeholder="Enter rent or mortgage cost">
-
-    <label for="utilities">Utilities ($):</label>
-    <input type="number" id="utilities" placeholder="Enter utilities cost">
-
-    <label for="groceries">Groceries ($):</label>
-    <input type="number" id="groceries" placeholder="Enter groceries cost">
-
-    <label for="transportation">Transportation ($):</label>
-    <input type="number" id="transportation" placeholder="Enter transportation cost">
-
-    <label for="entertainment">Entertainment ($):</label>
-    <input type="number" id="entertainment" placeholder="Enter entertainment cost">
-
-    <!-- Savings Goal Section -->
-    <h3>Savings Goal</h3>
-    <label for="savingsGoal">Total Savings Goal ($):</label>
-    <input type="number" id="savingsGoal" placeholder="Enter your total savings goal">
-
-    <label for="monthsGoal">Months to Reach Goal:</label>
-    <input type="number" id="monthsGoal" placeholder="Enter number of months">
-
-    <!-- Calculate Button -->
-    <button onclick="calculateBudget()">Calculate Budget</button>
-
-    <!-- Results Section -->
-    <div class="results" id="results"></div>
-
-    <!-- Pie Chart -->
-    <canvas id="expenseChart"></canvas>
-</div>
-
-<script>
-    function calculateBudget() {
-        // Income
-        const salary = parseFloat(document.getElementById("salary").value) || 0;
-        const otherIncome = parseFloat(document.getElementById("otherIncome").value) || 0;
-        const totalIncome = salary + otherIncome;
-
-        // Expenses
-        const rent = parseFloat(document.getElementById("rent").value) || 0;
-        const utilities = parseFloat(document.getElementById("utilities").value) || 0;
-        const groceries = parseFloat(document.getElementById("groceries").value) || 0;
-        const transportation = parseFloat(document.getElementById("transportation").value) || 0;
-        const entertainment = parseFloat(document.getElementById("entertainment").value) || 0;
-        const totalExpenses = rent + utilities + groceries + transportation + entertainment;
-
-        // Savings Goal
-        const savingsGoal = parseFloat(document.getElementById("savingsGoal").value) || 0;
-        const monthsGoal = parseFloat(document.getElementById("monthsGoal").value) || 1;
-        const monthlySavingsNeeded = savingsGoal / monthsGoal;
-
-        // Remaining Budget
-        const remainingBudget = totalIncome - totalExpenses;
-        const availableForSavings = remainingBudget >= monthlySavingsNeeded ? monthlySavingsNeeded : remainingBudget;
-
-        // Display Results
-        const resultsDiv = document.getElementById("results");
-        resultsDiv.innerHTML = `
-            <h3>Budget Summary</h3>
-            <p>Total Income: $${totalIncome.toFixed(2)}</p>
-            <p>Total Expenses: $${totalExpenses.toFixed(2)}</p>
-            <p>Remaining Budget After Expenses: $${remainingBudget.toFixed(2)}</p>
-            <p>Monthly Savings Needed for Goal: $${monthlySavingsNeeded.toFixed(2)}</p>
-            <p>Available for Savings This Month: $${availableForSavings.toFixed(2)}</p>
-        `;
-
-        // Generate Expense Chart
-        generateExpenseChart([rent, utilities, groceries, transportation, entertainment], totalIncome);
-    }
-
-    function generateExpenseChart(expenses, totalIncome) {
-        const ctx = document.getElementById("expenseChart").getContext("2d");
-        const labels = ["Rent", "Utilities", "Groceries", "Transportation", "Entertainment"];
-        const colors = ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0", "#9966FF"];
-
-        // Destroy previous chart instance if it exists
-        if (window.myChart) {
-            window.myChart.destroy();
-        }
-
-        window.myChart = new Chart(ctx, {
-            type: 'pie',
-            data: {
-                labels: labels,
-                datasets: [{
-                    data: expenses,
-                    backgroundColor: colors
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'bottom'
-                    }
-                }
-            }
-        });
-    }
-</script>
-
-<!-- Load Chart.js Library -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-</body>
+<html>
+    <head>
+        <title>FinanceFusion Budgeting</title>
+        <link rel = "stylesheet" href = "style4.css">
+        <link rel = "icon" type = "image/png" href = "favicon.png" sizes = "32x32">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    </head>
 </html>
+<body>
+    <header class = "header">
+        <h1><a href="index.html">FinanceFusion</a></h1>
+    </header>
+    <main>
+            <div class = "title">
+            <h2>Budgeting Tool</h2>
+            </div>
+            <div class = "content">
+            <form id = "expenseForm">
+                <label for="expenseAmount">Expense Name</label>
+                <input type="name" id = "expenseName" placeholder="Enter Expense Name">
+                <label for="expenseAmount">Expense Amount</label>
+                <input type="number" id = "expenseAmount" placeholder="Enter Expense Amount">
+                <select id = "expenseCategory" required>
+                    <option value = "Transport">Transport</option>
+                    <option value = "Entertainment">Entertainment</option>
+                    <option value = "Food">Food</option>
+                    <option value = "Other">Other</option>
+                </select>
+                <input type = "date" id ="expenseDate" required/>
+                <button type = "button" onclick = "updateTotal()">Add Expense</button>
+            </form>
+            <form id = "incomeForm">
+                <label for="incomeName">Income Name</label>
+                <input type="name" id = "incomeName" placeholder="Enter Income Name">
+                <label for="incomeAmount">Income Amount</label>
+                <input type="number" id = "incomeAmount" placeholder="Enter Income Amount">
+                <select id = "incomeCategory" required>
+                    <option value = "Salary">Salary</option>
+                    <option value = "Other">Other</option>
+                </select>
+                <input type = "date" id ="incomeDate" required/>
+                <button type = "button" onclick = "updateTotal()">Add Income</button>
+            </form>
+            </div>
+            <div class = "mainTable">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Amount</th>
+                            <th>Category</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id = "mainList"></tbody>
+                </table>
+                <div class = "total">
+                    <p>Total:</p> $<span id = "total">0</span>
+                </div>
+            </div>
+        </main>
+     <script src = "script.js">
+              function updateTotal() {
+                    const income = parseFloat(document.getElementById("incomeAmount").value) || 0;
+                    const expense = parseFloat(document.getElementById("expenseAmount").value) || 0;
+                    let total = parseFloat(document.getElementById("total").value) || 0;
+                    total = total + income;
+                    total = total - expense;
+                    total.textContent = total.toFixed(2);
+                }
+    </script>
+</body>
