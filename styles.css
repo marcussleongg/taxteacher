@@ -9,14 +9,21 @@
     font-family: 'Poppins', sans-serif;
 }
 
+#myVideo {
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+}
+
 body{
     display: flex; 
     justify-content: center; 
     align-items: center; 
     min-height:  100vh; 
-    background: url('background-image.png') no-repeat;
+    /*background: url('background-image.png') no-repeat;*/
     background-size: cover; 
     background-position: center; 
+    cursor: url('cursor.png'), auto;
 }
 
 header {
