@@ -126,7 +126,7 @@ form input, form select, form button {
 }
 
 .content ul li a {
-    color: gray;
+    color: cadetblue;
     animation: fade 3s ease;
 }
 
@@ -151,4 +151,40 @@ form input, form select, form button {
     border: 1px solid gray;
     font-size: 20px;
     animation: fade 3s ease;
+}
+
+#tax1b {
+    border: 1px solid gray;
+    font-size: 20px;
+    animation: fade 3s ease;
+}
+
+#tax2b {
+    border: 1px solid gray;
+    font-size: 20px;
+    animation: fade 3s ease;
+}
+
+#tax3b {
+    border: 1px solid gray;
+    font-size: 20px;
+    animation: fade 3s ease;
+}
+
+#educationList {
+    display: none;
+}
+
+#planningList {
+    display: none;
+}
+
+#typesList {
+    display: none;
+}
+
+#practice {
+    color: white;
+    font-style: italic;
+    font-size: 20px;
 }
