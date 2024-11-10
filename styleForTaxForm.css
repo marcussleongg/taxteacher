@@ -51,6 +51,12 @@ header {
 
 }
 
+#title{
+    color: #fff;
+    text-decoration: none; 
+    animation: fade 3s ease;
+}
+
 .navigation a {
     position: relative;
     font-size: 1.1em;
