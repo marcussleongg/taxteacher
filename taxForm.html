@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tax Form</title>
+        <link rel = "stylesheet" href = "style-form.css">
+        <link rel = "icon" type = "image/png" href = "favicon.png" sizes = "32x32">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    </head>
+</html>
+<body>
+    <header class = "header">
+        <h2 class="logo"><a href="index.html">Asteroid Audit</a></h2>
+    </header>
+        <div class = "content">
+    <form id = "taxForm">
+        <label for="grossIncome">Gross Income</label>
+        <input type="number" id = "grossIncome" placeholder="Enter Amount">
+        <br>
+        <label for="retirementContributions">Retirement Contributions</label>
+        <input type="number" id = "retirementContributions" placeholder="Enter Amount">
+        <br>
+        <label for="studentLoanInterestDeduction">Student Loan Interest Deductions</label>
+        <input type="number" id = "studentLoanInterestDeduction" placeholder="Enter Amount">
+        <br>
+        <label for="otherAdjustments">Other Adjustment Amounts</label>
+        <input type="number" id = "otherAdjustments" placeholder="Enter Amount">
+        <br>
+        <button type = "button" id = "updateAGIB">Calculate AGI</button>
+        <br>
+        <p>AGI: </p>
+        <p id = "AGICurrent">N/A</p>
+        <br>
+    </form>
+    <form id = "taxForm2">
+        <label for="standardDeductions">Standard Deductions</label>
+        <input type="number" id = "standardDeductions" placeholder="Enter Amount">
+        <br>
+        <button type = "button" id = "updateTaxableIncomeB">Calculate Taxable Income</button>
+        <br>
+        <p>Taxable Income: </p>
+        <p id = "taxableIncomeCurrent">N/A</p>
+        <br>
+    </form>
+    <form>
+        <label for="credits">Credits (ex. child tax credit)</label>
+        <input type="number" id = "credits" placeholder="Enter Amount">
+        <br>
+        <label for="withholdingOrEstimated">Withholding or Estimated Payments</label>
+        <input type="number" id = "withholdingOrEstimated" placeholder="Enter Amount">
+        <br>
+        <button type = "button" id = "updateTaxOwedB">Calculate Income Tax</button><br>
+        <p>Income Tax Calculation: </p>
+        <p id = "taxOwedCurrent">N/A</p>
+        <br>
+    </form>
+        <br>
+    <p>Total Tax Due: </p>
+    <p id = "totalTaxDue">N/A</p>
+</body>
+</html>
+<script>
+    document.getElementById("updateAGIB").addEventListener("click", function() {
+        let grossIncome = parseFloat(document.getElementById("grossIncome").value) || 0;
+        let retirementContributions = parseFloat(document.getElementById("retirementContributions").value) || 0;
+        let studentLoanInterestDeduction = parseFloat(document.getElementById("studentLoanInterestDeduction").value) || 0;
+        let otherAdjustments = parseFloat(document.getElementById("otherAdjustments").value) || 0;
+        let AGI = grossIncome - retirementContributions - studentLoanInterestDeduction - otherAdjustments;
+        let a = document.getElementById("AGICurrent");
+        a.textContent = AGI;
+ })
+
+ document.getElementById("updateTaxableIncomeB").addEventListener("click", function() {
+        let grossIncome = parseFloat(document.getElementById("grossIncome").value) || 0;
+        let retirementContributions = parseFloat(document.getElementById("retirementContributions").value) || 0;
+        let studentLoanInterestDeduction = parseFloat(document.getElementById("studentLoanInterestDeduction").value) || 0;
+        let otherAdjustments = parseFloat(document.getElementById("otherAdjustments").value) || 0;
+        let AGI = grossIncome - retirementContributions - studentLoanInterestDeduction - otherAdjustments;
+        let standardDeductions = parseFloat(document.getElementById("standardDeductions").value) || 0;
+        let taxableIncome = AGI - standardDeductions;
+        let t = document.getElementById("taxableIncomeCurrent");
+        t.textContent = taxableIncome;
+ })
+
+ document.getElementById("updateTaxOwedB").addEventListener("click", function() {
+        let grossIncome = parseFloat(document.getElementById("grossIncome").value) || 0;
+        let retirementContributions = parseFloat(document.getElementById("retirementContributions").value) || 0;
+        let studentLoanInterestDeduction = parseFloat(document.getElementById("studentLoanInterestDeduction").value) || 0;
+        let otherAdjustments = parseFloat(document.getElementById("otherAdjustments").value) || 0;
+        let AGI = grossIncome - retirementContributions - studentLoanInterestDeduction - otherAdjustments;
+        let standardDeductions = parseFloat(document.getElementById("standardDeductions").value) || 0;
+        let taxableIncome = AGI - standardDeductions;
+        let taxOwed = 0;
+            let tax1 = Math.max(0, taxableIncome - 0);
+            if(tax1 > 0) {
+                tax1 = Math.min(11601, taxableIncome - 0) * 0.10;
+            }
+            let tax2 = Math.max(0, taxableIncome - 11601); 
+            if(tax2 > 0) {
+                tax2 = Math.min(47151 - 11601, taxableIncome - 11601) * 0.12;
+            }
+            let tax3 = Math.max(0, taxableIncome - 47151); 
+            if(tax3 > 0) {
+                tax3 = Math.min(100526 - 47151, taxableIncome - 47151) * 0.22;
+            }
+            let tax4 = Math.max(0, taxableIncome - 100526); 
+            if(tax4 > 0) {
+                tax4 = Math.min(191951 - 100526, taxableIncome - 100526) * 0.24;
+            }
+            let tax5 = Math.max(0, taxableIncome - 191951);
+            if(tax5 > 0) {
+                tax5 = Math.min(243726 - 191951, taxableIncome - 191951) * 0.32;
+            }
+            let tax6 = Math.max(0, taxableIncome - 243726);
+            if(tax6 > 0) {
+                tax6 = Math.min(609350 - 273726, taxableIncome - 243726) * 0.35;
+            }
+            let tax7 = Math.max(0, taxableIncome - 609350);
+            if(tax7 > 0) {
+                tax7 = (taxableIncome - 609350) * 0.37;
+            }
+            taxOwed = tax1 + tax2 + tax3 + tax4 + tax5 + tax6 + tax7;
+        let o = document.getElementById("taxOwedCurrent") || 0;
+        o.textContent = taxOwed;
+        let p = document.getElementById("totalTaxDue") || 0;
+        let credits = parseFloat(document.getElementById("credits").value) || 0;
+        let withholdingOrEstimated = parseFloat(document.getElementById("withholdingOrEstimated").value) || 0;
+        let k = taxOwed - credits - withholdingOrEstimated;
+        p.textContent = k;
+ })
+</script>
