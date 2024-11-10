@@ -69,6 +69,7 @@
 </html>
 <script>
     document.getElementById("updateAGIB").addEventListener("click", function() {
+        let body = document.querySelector("body");
         let grossIncome = parseFloat(document.getElementById("grossIncome").value) || 0;
         let retirementContributions = parseFloat(document.getElementById("retirementContributions").value) || 0;
         let studentLoanInterestDeduction = parseFloat(document.getElementById("studentLoanInterestDeduction").value) || 0;
@@ -76,6 +77,18 @@
         let AGI = grossIncome - retirementContributions - studentLoanInterestDeduction - otherAdjustments;
         let a = document.getElementById("AGICurrent");
         a.textContent = AGI;
+        console.log("hi im working");
+        try {
+            const img = document.querySelector("img");
+            img.remove()
+        } catch (name) {
+            console.log(name);
+        }
+        const img = document.createElement("img");
+        img.classList.add("AGI_chart");
+        img.src= "https://quickchart.io/chart?width=500&height=300&chart={type:'pie',data:{labels:['Retirement Contributions','Student Loan Interest', 'Other Adjustments'], datasets:[{label:'Data',data:[" + retirementContributions + ", " + studentLoanInterestDeduction + ", " + otherAdjustments + "]}]}}";
+        img.width = 600;
+        body.appendChild(img);
  })
 
  document.getElementById("updateTaxableIncomeB").addEventListener("click", function() {
